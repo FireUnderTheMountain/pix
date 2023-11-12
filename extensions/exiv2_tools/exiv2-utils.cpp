@@ -753,7 +753,7 @@ exiv2_read_metadata_from_file (GFile         *file,
 		}
 
 #if EXIV2_TEST_VERSION(0,28,0)
-      Exiv2::Image::UniquePtr image = Evix2::ImageFactory::open(path);
+      Exiv2::Image::UniquePtr image = Exiv2::ImageFactory::open(path);
 #else
 		Exiv2::Image::AutoPtr image = Exiv2::ImageFactory::open(path);
 #endif
@@ -773,7 +773,7 @@ exiv2_read_metadata_from_file (GFile         *file,
 #endif
 	}
 #if EXIV2_TEST_VERSION(0,28,0)
-	catch (Exiv2::Error& a) {
+	catch (Exiv2::Error& e) {
 #else
 	catch (Exiv2::AnyError& e) {
 #endif
