@@ -983,7 +983,13 @@ dump_exif_data (Exiv2::ExifData &exifData,
 
 	try {
 		if (exifData.empty()) {
+#if EXIV2_TEST_VERSION(0,28,0)
+			throw Exiv2::Error(Exiv2::ErrorCode::kerErrorMessage, " No Exif data found in the file");
+#elif EXIV2_TEST_VERSION(0,27,0)
+			throw Exiv2::Error(Exiv2::kerErrorMessage, " No Exif data found in the file");
+#else
 			throw Exiv2::Error(1, " No Exif data found in the file");
+#endif
 		}
 		Exiv2::ExifData::const_iterator end = exifData.end();
 		for (Exiv2::ExifData::const_iterator i = exifData.begin(); i != end; ++i) {
