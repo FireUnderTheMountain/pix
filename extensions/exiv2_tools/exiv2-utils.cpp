@@ -28,13 +28,18 @@
 #include <exiv2/error.hpp>
 #include <exiv2/image.hpp>
 #include <exiv2/exif.hpp>
+#include <exiv2/exiv2.hpp>
 #include <iostream>
 #include <iomanip>
 #include <string>
 #include <sstream>
 #include <vector>
 #include <iomanip>
+#if EXIV2_TEST_VERSION(0, 27, 0)
+#include <exiv2/xmp_exiv2.hpp>
+#else
 #include <exiv2/xmp.hpp>
+#endif
 #include <pix.h>
 #include "exiv2-utils.h"
 
